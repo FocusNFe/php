@@ -1,6 +1,6 @@
 <?php
 /*
-  O trecho de código abaixo mostra 
+  O trecho de código abaixo mostra o cancelamento de nfse 
 
 */
 
