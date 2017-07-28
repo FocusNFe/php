@@ -63,13 +63,16 @@ $request -> getBody()->append($json);
 // Aqui fazemos o envio dos dados para API e pegamos os dados de retorno da API. 
 $client = new http\Client;
 $client -> enqueue($request)->send(); 
-$http_code = $client->getResponse($request);
+$resposta = $client->getResponse($request);
 
-// Para ver apenas o http code de retorno e descrição.Exemplo: HTTP/1.1 200 OK
-print ($http_code->getInfo());
+// Variáveis de retorno.
+$status = $resposta->getResponseStatus();
+$http_code = $resposta->getResponseCode();
+$mensagem_retorno = $resposta->getBody();
 
-// Para ver o retorno completo, remova a função getInfo().
-// print ($http_code);
+print ($http_code." ".$status."<br />");
+
+// Mostramos aqui a mensagem de retorno decodificada de JSON para objeto PHP.
+var_dump (json_decode($mensagem_retorno));
 
 ?>
-
