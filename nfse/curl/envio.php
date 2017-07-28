@@ -4,7 +4,7 @@
 // $server = "https://api.focusnfe.com.br";
 $server = "http://homologacao.acrasnfe.acras.com.br";
 $token = "token_enviado_pelo_suporte"
- //Substituir pela sua identificação interna da nota
+//Substituir pela sua identificação interna da nota
 $ref   = "12345";
 $nfse = array (
 	"data_emissao" => "2017-07-24T13:30:00-03:00",
@@ -14,7 +14,7 @@ $nfse = array (
 	"status" => "1",
 	"prestador" => array (
 		"cnpj" => "51916585000125",
-		"inscricao_municipal" => "080204613599",
+		"inscricao_municipal" => "777777",
 		"codigo_municipio" => "4106902"
 	),
 	"servico" => array (
