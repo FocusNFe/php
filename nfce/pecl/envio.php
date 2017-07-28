@@ -1,50 +1,52 @@
 <?php
 
 // Você deve definir isso globalmente para sua aplicação.
+// Para ambiente de produção use a variável abaixo:
+// $server = "https://api.focusnfe.com.br";
 $server = "http://homologacao.acrasnfe.acras.com.br";
-// URl de produção: http://producao.acrasnfe.acras.com.br
 $token = "token_enviado_pelo_suporte";
+// Substituir pela sua identificação interna da nota.
 $ref = "12345";
 
 $nfce = array (
-    "natureza_operacao" => "Venda ao Consumidor", 
-	"formas_pagamento" => array( 
-				array(
-				     "forma_pagamento"=> "1",
-				     "valor_pagamento"=> "1.00"
-					)
-					   ), 
+    "natureza_operacao" => "Venda ao Consumidor",
+	"formas_pagamento" => array(
+		array(
+			"forma_pagamento"=> "1",
+			"valor_pagamento"=> "1.00"
+			)
+		),
 	"forma_pagamento" => "0", 
 	"tipo_documento" => "1", 
 	"consumidor_final" => "1", 
-	"finalidade_emissao" => "1", 
-	"presenca_comprador" => "1", 
-	"cnpj_emitente" => "08275693000137", 
-	"cpf_destinatario" => "13635069434", 
-	"nome_destinatario" => "NF-E EMITIDA EM AMBIENTE DE HOMOLOGACAO - SEM VALOR FISCAL", 
+	"finalidade_emissao" => "1",
+	"presenca_comprador" => "1",
+	"cnpj_emitente" => "51916585000125",
+	"cpf_destinatario" => "51966818092",
+	"nome_destinatario" => "NF-E EMITIDA EM AMBIENTE DE HOMOLOGACAO - SEM VALOR FISCAL",
 	"items"=> array(
-					array(  
-				"numero_item"=> "1", 
-				"codigo_produto"=> "293656", 
-				"descricao"=> "NOTA FISCAL EMITIDA EM AMBIENTE DE HOMOLOGACAO - SEM VALOR FISCAL", 
-				"codigo_ncm"=> "39269090", 
-				"cfop"=> "5101", 
-				"unidade_comercial"=> "PC", 
-				"valor_unitario_comercial"=> "1.00", 
-				"valor_bruto"=> "1.00", 
-				"unidade_tributavel"=> "PC", 
-				"quantidade_tributavel"=> "1.00",
-				"quantidade_comercial"=> "1.00", 
-				"valor_unitario_tributavel"=> "1.00", 
-				"icms_origem"=> "0", 
-				"icms_situacao_tributaria"=> "102" 
-				 		  )
-					),
-	"valor_produtos" => "1.00", 
-	"valor_total" => "1.00", 
+		array(
+			"numero_item"=> "1",
+			"codigo_produto"=> "293656",
+			"descricao"=> "NOTA FISCAL EMITIDA EM AMBIENTE DE HOMOLOGACAO - SEM VALOR FISCAL",
+			"codigo_ncm"=> "39269090",
+			"cfop"=> "5101",
+			"unidade_comercial"=> "PC",
+			"valor_unitario_comercial"=> "1.00",
+			"valor_bruto"=> "1.00",
+			"unidade_tributavel"=> "PC",
+			"quantidade_tributavel"=> "1.00",
+			"quantidade_comercial"=> "1.00",
+			"valor_unitario_tributavel"=> "1.00",
+			"icms_origem"=> "0",
+			"icms_situacao_tributaria"=> "102"
+			)
+		),
+	"valor_produtos" => "1.00",
+	"valor_total" => "1.00",
 	"data_emissao" => "2017-07-25T17:28:22-03:00",
 	"modalidade_frete" => "9"
-    			);
+);
 
 // Transforma a váriavel em objeto JSON.
 $json = json_encode($nfce); 
@@ -61,12 +63,13 @@ $request -> getBody()->append($json);
 // Aqui fazemos o envio dos dados para API e pegamos os dados de retorno da API. 
 $client = new http\Client;
 $client -> enqueue($request)->send(); 
-$response = $client->getResponse($request);
+$http_code = $client->getResponse($request);
 
 // Para ver apenas o http code de retorno e descrição.Exemplo: HTTP/1.1 200 OK
-print ($response->getInfo()); 
+print ($http_code->getInfo());
 
 // Para ver o retorno completo, remova a função getInfo().
-// print ($response); 
+// print ($http_code);
 
 ?>
+
