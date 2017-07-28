@@ -1,9 +1,11 @@
 <?php
 
 // Você deve definir isso globalmente para sua aplicação.
+// Para ambiente de produção use a variável abaixo:
+// $server = "https://api.focusnfe.com.br";
 $server = "http://homologacao.acrasnfe.acras.com.br";
-// URl de produção: http://producao.acrasnfe.acras.com.br
 $token = "token_enviado_pelo_suporte";
+// Substituir pela sua identificação interna da nota.
 $ref = "12345";
 
 // Montamos a URL com os parametros globais.
@@ -17,13 +19,16 @@ $request -> setQuery($parametros);
 // Aqui fazemos o envio dos dados para API e pegamos os dados de retorno da API.
 $client = new http\Client;
 $client -> enqueue($request)->send(); 
-$response = $client->getResponse($request); 
+$resposta = $client->getResponse($request);
 
-// Para ver apenas o http code de retorno e descrição.Exemplo: HTTP/1.1 200 OK
-print ($response->getInfo()); 
+// Variáveis de retorno.
+$status = $resposta->getResponseStatus();
+$http_code = $resposta->getResponseCode();
+$mensagem_retorno = $resposta->getBody();
 
-// Para ver o retorno completo, remova a função getInfo().
-// print ($response); 
+print ($http_code." ".$status."<br />");
 
+// Mostramos aqui a mensagem de retorno decodificada de JSON para objeto PHP.
+var_dump (json_decode($mensagem_retorno));
 
 ?>
