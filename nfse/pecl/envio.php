@@ -1,9 +1,11 @@
 <?php
 
 // Você deve definir isso globalmente para sua aplicação.
+// Para ambiente de produção use a variável abaixo:
+// $server = "https://api.focusnfe.com.br";
 $server = "http://homologacao.acrasnfe.acras.com.br";
-// URl de produção: http://producao.acrasnfe.acras.com.br
 $token = "token_enviado_pelo_suporte";
+// Substituir pela sua identificação interna da nota.
 $ref = "12345";
 
 $nfse = array (
@@ -13,8 +15,8 @@ $nfse = array (
   "optante_simples_nacional" => "false",
   "status" => "1",
   "prestador" => array (
-    "cnpj" => "13140705000156",
-    "inscricao_municipal" => "184441",
+    "cnpj" => "51916585000125",
+    "inscricao_municipal" => "777777",
     "codigo_municipio" => "3518800"
     ),
   "servico" => array (
@@ -28,18 +30,18 @@ $nfse = array (
      "valor_servicos" => "200.0"
     ),
   "tomador" => array (
-    "cpf" => "06270388795",
-    "razao_social" => "Global Negocios e Publicidade Eireli",
+    "cpf" => "51966818092",
+    "razao_social" => "ACME LTDA",
     "endereco" => array (
-       "bairro" => "Centro",
-       "cep" => "07040010",
-       "codigo_municipio" => "3518800",
-       "logradouro" => "Rua Nove de Julho",
-       "numero" => "582",
-       "uf" => "SP"
-       ),
+      "bairro" => "Centro",
+      "cep" => "07040010",
+      "codigo_municipio" => "3518800",
+      "logradouro" => "Rua Nove de Julho",
+      "numero" => "582",
+      "uf" => "SP"
+      ),
     )
-  );
+);
 
 // Transforma a váriavel em objeto JSON.
 $json = json_encode($nfse);
@@ -56,12 +58,16 @@ $request -> getBody()->append($json);
 // Aqui fazemos o envio dos dados para API e pegamos os dados de retorno da API.
 $client = new http\Client;
 $client -> enqueue($request)->send(); 
-$response = $client->getResponse($request); 
+$resposta = $client->getResponse($request);
 
-// Para ver apenas o http code de retorno e descrição.Exemplo: HTTP/1.1 200 OK
-print ($response->getInfo()); 
+// Variáveis de retorno.
+$status = $resposta->getResponseStatus();
+$http_code = $resposta->getResponseCode();
+$mensagem_retorno = $resposta->getBody();
 
-// Para ver o retorno completo, remova a função getInfo().
-// print ($response);
+print ($http_code." ".$status."<br />");
+
+// Mostramos aqui a mensagem de retorno decodificada de JSON para objeto PHP.
+var_dump (json_decode($mensagem_retorno));
 
 ?>
