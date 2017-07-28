@@ -70,4 +70,4 @@ print ($http_code." ".$status."<br />");
 // Mostramos aqui a mensagem de retorno decodificada de JSON para objeto PHP.
 var_dump (json_decode($mensagem_retorno));
 
-?>
+?> 
