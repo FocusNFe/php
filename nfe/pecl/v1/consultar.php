@@ -9,8 +9,8 @@ $token = "token_enviado_pelo_suporte";
 $ref = "12345";
 
 // Montamos a URL com os parametros globais.
-$parametros = new http\QueryString("token=".$token); 
-$request = new http\Client\Request("GET", $server."/nfse/".$ref); 
+$parametros = new http\QueryString("ref=".$ref."&token=".$token); 
+$request = new http\Client\Request("GET", $server."/nfe2/consultar.json"); 
 $request -> setQuery($parametros); 
 
 // Recomendamos que veja os dados antes do envio e compare com os dados descritos em nossa documentação.

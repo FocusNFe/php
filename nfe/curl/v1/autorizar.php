@@ -1,7 +1,7 @@
 <?php
 // Você deve definir isso globalmente para sua aplicação
 // Para ambiente de produção use a variável abaixo:
-// $server = "http://producao.acrasnfe.acras.com.br";
+// $server = "https://api.focusnfe.com.br";
 $server = "http://homologacao.acrasnfe.acras.com.br";
 $token= "token_enviado_pelo_suporte";
 // Substituir pela sua identificação interna da nota
