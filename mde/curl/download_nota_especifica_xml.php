@@ -6,7 +6,7 @@
 // Para ambiente de Produção, utilize a URL: https://api.focusnfe.com.br  
  $server = "http://homologacao.acrasnfe.acras.com.br/";
  $ch = curl_init();
-   curl_setopt($ch, CURLOPT_URL, $server."/v2/nfes_recebidas/".$chave.".xml");
+   curl_setopt($ch, CURLOPT_URL, $server."v2/nfes_recebidas/".$chave.".xml");
    curl_setopt($ch, CURLOPT_RETURNTRANSFER, 1);
    curl_setopt($ch, CURLOPT_HTTPHEADER, array());
 
