@@ -3,7 +3,7 @@
 // Para ambiente de produção use a variável abaixo:
 // $server = "https://api.focusnfe.com.br";
 
-$server = "http://homologacao.acrasnfe.acras.com.br";
+$server = "https://homologacao.focusnfe.com.br";
 
 $login = "Token_enviado_pelo_suporte";
 $password = "";

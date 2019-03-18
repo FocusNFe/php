@@ -6,7 +6,7 @@
  $password = "";
  // Para ambiente de produção use a variável abaixo:
  // $server = "https://api.focusnfe.com.br";
- $server = "http://homologacao.acrasnfe.acras.com.br"; // Servidor de homologação
+ $server = "https://homologacao.focusnfe.com.br"; // Servidor de homologação
  $ch = curl_init();
  curl_setopt($ch, CURLOPT_URL, $server."/v2/nfse/" . $ref);
  curl_setopt($ch, CURLOPT_RETURNTRANSFER, 1);

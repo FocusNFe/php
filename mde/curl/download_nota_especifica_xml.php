@@ -4,7 +4,7 @@
  $chave = "Chave_de_identificação_da_NFe";
 
 // Para ambiente de Produção, utilize a URL: https://api.focusnfe.com.br  
- $server = "http://homologacao.acrasnfe.acras.com.br/";
+ $server = "https://homologacao.focusnfe.com.br/";
  $ch = curl_init();
    curl_setopt($ch, CURLOPT_URL, $server."v2/nfes_recebidas/".$chave.".xml");
    curl_setopt($ch, CURLOPT_RETURNTRANSFER, 1);

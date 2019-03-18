@@ -3,7 +3,7 @@
 // Para ambiente de produção use a variável abaixo:
 // $server = "https://api.focusnfe.com.br";
 
-$server = "http://homologacao.acrasnfe.acras.com.br";
+$server = "https://homologacao.focusnfe.com.br";
 
 // Substituir pela sua identificação interno do CTe.
 $ref = "12345";

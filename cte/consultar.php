@@ -9,7 +9,7 @@ $password = "";
 // Para ambiente de produção use a variável abaixo:
 // $server = "https://api.focusnfe.com.br";
 
-$server = "http://homologacao.acrasnfe.acras.com.br";
+$server = "https://homologacao.focusnfe.com.br";
 
 $ch = curl_init();
 curl_setopt($ch, CURLOPT_URL, $server."/v2/cte/" . $ref."?completa=1");

@@ -2,7 +2,7 @@
 // Você deve definir isso globalmente para sua aplicação
 // Para ambiente de produção use a variável abaixo:
 // $server = "https://api.focusnfe.com.br/";
-$server = "http://homologacao.acrasnfe.acras.com.br";
+$server = "https://homologacao.focusnfe.com.br";
 // Substituir pela sua identificação interna da nota
 $ref = "12345";
 $login = "token_enviado_pelo_suporte";

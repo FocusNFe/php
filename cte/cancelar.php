@@ -8,7 +8,7 @@ $ref   = "12345";
 // Para ambiente de produção use a variável abaixo:
 // $server = "https://api.focusnfe.com.br";
 
-$server = "http://homologacao.acrasnfe.acras.com.br";
+$server = "https://homologacao.focusnfe.com.br";
 
 $justificativa = array ("justificativa" => "A sua justificativa de cancelamento aqui.");
 
